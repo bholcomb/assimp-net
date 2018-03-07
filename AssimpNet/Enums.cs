@@ -27,6 +27,27 @@ namespace Assimp
     /// <summary>
     /// Enumerates metadata data types.
     /// </summary>
+   public enum MorphingMethod : int
+   {
+      /// <summary>
+      /// Interpolation between morph targets
+      /// </summary>
+      VertexBlend = 0x1,
+
+      /// <summary>
+      /// Normalized morphing between morph targets
+      /// </summary>
+      MorphNormalized = 0x2,
+
+      /// <summary>
+      /// Relative morphing between morph targets
+      /// </summary>
+      MorphRelative = 0x3
+   };
+
+   /// <summary>
+   /// Enumerates metadata data types.
+   /// </summary>
     public enum MetaDataType
     {
         /// <summary>
@@ -998,7 +1019,15 @@ namespace Assimp
         /// TER (Terragen) and HMP (3D Game Studio) are height map formats.
         /// </para>
         /// </summary>
-        Terrain = 0x10
+        Terrain = 0x10, 
+
+        ///<summary>
+        ///Specifies that the scene data can be shared between structures. For example:
+        ///one vertex in few faces. \ref AI_SCENE_FLAGS_NON_VERBOSE_FORMAT can not be
+        ///used for this because \ref AI_SCENE_FLAGS_NON_VERBOSE_FORMAT has internal
+        ///meaning about postprocessing steps.
+        /// </summary>
+        AllowShared = 0x20
     }
 
     /// <summary>
@@ -1080,6 +1109,11 @@ namespace Assimp
         /// Array of single-precision (32 bit) floats.
         /// </summary>
         Float = 0x1,
+
+        /// <summary>
+        /// Array of single-precision (32 bit) floats.
+        /// </summary>
+        Double = 0x2,
 
         /// <summary>
         /// Property is a string.

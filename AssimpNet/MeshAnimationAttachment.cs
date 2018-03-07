@@ -323,6 +323,7 @@ namespace Assimp
             nativeValue.Colors = new AiMeshColorArray();
             nativeValue.TextureCoords = new AiMeshTextureCoordinateArray();
             nativeValue.NumVertices = (uint) VertexCount;
+            nativeValue.Weight = 0;
 
             if(VertexCount > 0)
             {

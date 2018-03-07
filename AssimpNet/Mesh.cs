@@ -44,6 +44,8 @@ namespace Assimp
         private int[] m_texComponentCount;
         private List<Bone> m_bones;
         private List<MeshAnimationAttachment> m_meshAttachments;
+        private MorphingMethod m_morphing;
+
 
         /// <summary>
         /// Gets or sets the mesh name. This tends to be used
@@ -640,6 +642,7 @@ namespace Assimp
             nativeValue.NumBones = (uint) BoneCount;
             nativeValue.NumFaces = (uint) FaceCount;
             nativeValue.NumAnimMeshes = (uint) MeshAnimationAttachmentCount;
+            nativeValue.Morphing = m_morphing;
 
             if(nativeValue.NumVertices > 0)
             {
@@ -719,6 +722,7 @@ namespace Assimp
             int vertexCount = (int) nativeValue.NumVertices;
             m_name = nativeValue.Name.GetString();
             m_materialIndex = (int) nativeValue.MaterialIndex;
+            m_morphing = nativeValue.Morphing;
 
             //Load Per-vertex components
             if(vertexCount > 0)
