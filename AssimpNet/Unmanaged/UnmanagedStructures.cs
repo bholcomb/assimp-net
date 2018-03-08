@@ -322,7 +322,7 @@ namespace Assimp.Unmanaged
         /// sbyte[4], format extension hint. Fixed size char is two bytes regardless of encoding. Unmanaged assimp uses a char that
         /// maps to one byte.
         /// </summary>
-        public fixed sbyte FormatHint[4];
+        public fixed sbyte FormatHint[9];
 
         /// <summary>
         /// aiTexel*, array of texel data.
